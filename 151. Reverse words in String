@@ -1,11 +1,12 @@
 class Solution {
     public String reverseWords(String s) {
-        s= s.trim();
-        String[] allwords = s.split("\\s+");
-        String ans= "";
-        for(int i=allwords.length-1;i>=0;i--){
-            ans=ans+allwords[i]+" ";
-        } return ans.trim();
+        s= s.trim();  //removes leading and trailing spaces
+        String[] allwords = s.split("\\s+");  //split each word in the sentence
+        String ans= "";  // stores answer from the for loop
+        for(int i=allwords.length-1;i>=0;i--){  // iterates from end of the splitted string
+            ans=ans+allwords[i]+" ";  //takes the last word and add space after it
+        } 
+        return ans.trim();   // trims the extra space added in for loop
     }
    
 }
