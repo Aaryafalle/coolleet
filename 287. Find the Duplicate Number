@@ -1,0 +1,62 @@
+//We have a box of numbers. One number is repeated, and we want to find it.
+
+👣 We have two kids: Slow and Fast.
+They both start from the first number in the box.
+
+🚶‍♂️ Slow takes 1 step each time.
+🏃‍♂️ Fast takes 2 steps each time.
+They’re running around the numbers like a circle (because there's a duplicate, so it's like a loop!).
+
+🎉 When Slow and Fast meet at the same number, we stop!
+That means we found the loop where the repeated number hides.
+
+👦 Now, a third kid, Slow2, starts again from the beginning.
+
+🚶‍♂️🚶‍♂️ Slow and Slow2 now walk slowly (1 step at a time).
+They will meet at the magic number — the duplicate one!
+
+🎯 Return the number where they met — that’s the duplicate number!//
+
+class Solution {
+    public int findDuplicate(int[] nums) {
+        int slow= nums[0];
+        int fast= nums[0];
+
+        while(true){
+            slow= nums[slow];
+            fast=nums[nums[fast]];
+
+            if(slow==fast){
+                break;
+            }
+        }
+        int slow2=nums[0];
+        while(slow!=slow2){
+            slow=nums[slow];
+            slow2= nums[slow2];
+        }
+        return slow;
+    }
+}
+
+OR
+
+class Solution {
+    public int findDuplicate(int[] nums) {
+        Arrays.sort(nums);
+        int count =0;
+        int i=0;
+        int j=i+1;
+        while(i<nums.length){
+            if(nums[i]==nums[j]){
+               count= nums[i];
+                break;
+            }
+                i++;
+                j++;
+
+        }
+        return count;
+        
+    }
+}
