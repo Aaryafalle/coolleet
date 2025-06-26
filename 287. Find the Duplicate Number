@@ -60,3 +60,21 @@ class Solution {
         
     }
 }
+
+
+OR
+
+class Solution {
+    public int findDuplicate(int[] nums) {
+       HashSet <Integer> check = new HashSet<>();
+       int ans = 0;
+       for(int i=0; i<nums.length; i++){
+         if(!check.contains(nums[i])){
+            check.add(nums[i]);
+         }else{
+            ans = nums[i];
+         }
+       }
+       return ans;
+    }
+}
