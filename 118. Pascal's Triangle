@@ -1,0 +1,21 @@
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> lol = new ArrayList<>();
+
+        for(int i=0; i<numRows;i++){
+            List<Integer> row = new ArrayList<>();
+            for(int j=0;j<=i;j++){
+                if(j==0||j==i){
+                    row.add(1);
+                }
+                else{
+                    int val = lol.get(i-1).get(j-1)+lol.get(i-1).get(j);//(gives previous row)(left number from the previous row.)+( right number from the previous row.)
+                    row.add(val);
+                }
+            }
+        lol.add(row);
+        }
+
+        return lol;
+    }
+}
